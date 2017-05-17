@@ -1,6 +1,7 @@
 package tuc.christos.citywalk.resources;
 
 import java.net.URI;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -33,6 +34,7 @@ public class PeriodsResource {
 	@GET
 	public Response getPeriods(@Context UriInfo uriInfo){
 		List<Period> per = PeriodService.getAllPeriods();
+		
 		for(Period period: per){
 			period.getLinks().clear();
 			period.addLink(new Link(uriForSelf(uriInfo, period),"self"));
@@ -43,6 +45,15 @@ public class PeriodsResource {
 		GenericEntity<List<Period>> gPer = new GenericEntity<List<Period>>(per){};
 		return Response.ok(gPer)
 				   .build();
+	}
+	
+	@GET
+	@Path("/sync")
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response getSync(@Context UriInfo uriInfo){
+		Timestamp time = PeriodService.checkSync();
+		
+		return Response.ok(time.toString()).build();
 	}
 	
 	@POST

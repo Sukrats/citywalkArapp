@@ -41,10 +41,8 @@ public class SceneService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -100,10 +98,8 @@ public class SceneService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		   //finally block used to close resources
@@ -157,10 +153,8 @@ public class SceneService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			   //finally block used to close resources
@@ -219,10 +213,8 @@ public class SceneService {
 				return false;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			   //finally block used to close resources
@@ -252,5 +244,33 @@ public class SceneService {
 		return 	new Scene();
 	}
 	
+	public static Timestamp checkSync(){
+		Connection conn = null;
+		Statement stmt = null;
+		Timestamp time = null;
+		try {
+			conn = DBUtility.createConnection();
+			stmt = conn.createStatement();
+			String query = "SELECT update_time "
+					+ "FROM   modifications "
+					+ "WHERE  table_name = 'scene' ";
+			ResultSet rs = stmt.executeQuery(query);
+			if(rs.next()){
+				time = (rs.getTimestamp("update_time"));
+			}
+			if(time!= null){
+				System.out.println(time.toString());
+			}else{
+				System.out.println("No time stamp");
+			}
+			conn.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return time;
+	}
 	
 }

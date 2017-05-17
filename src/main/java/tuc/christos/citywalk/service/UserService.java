@@ -43,7 +43,7 @@ public class UserService {
 	        	profile.setFirstname(rs.getString("firstname"));
 	        	profile.setLastname(rs.getString("lastname"));
 	        	profile.setCreated(rs.getDate("created"));
-	        	profile.setRecentActivity(rs.getTimestamp("recent_activity"));
+	        	profile.setRecentActivity(rs.getTimestamp("recent_activity").toString());
 	        	profilesList.add(profile);
 	        }
 		    //clean up environment
@@ -99,7 +99,7 @@ public class UserService {
 	        	profile.setFirstname(rs.getString("firstname"));
 	        	profile.setLastname(rs.getString("lastname"));
 	        	profile.setCreated(rs.getDate("created"));
-	        	profile.setRecentActivity(rs.getTimestamp("recent_activity"));
+	        	profile.setRecentActivity(rs.getTimestamp("recent_activity").toString());
 	        }
 		    //clean up environment
 		    stmt.close();
@@ -150,7 +150,7 @@ public class UserService {
 	        	profile.setFirstname(rs.getString("firstname"));
 	        	profile.setLastname(rs.getString("lastname"));
 	        	profile.setCreated(rs.getDate("created"));
-	        	profile.setRecentActivity(rs.getTimestamp("recent_activity"));
+	        	profile.setRecentActivity(rs.getTimestamp("recent_activity").toString());
 	        }
 		    //clean up environment
 		    stmt.close();
@@ -202,12 +202,10 @@ public class UserService {
 		    dbConn.close();
 			
 		}catch (SQLException sqle) {
-			// TODO Auto-generated catch block
 			System.out.println("SQL State: "+sqle.getSQLState());
 			System.out.println("SQL error code: " + sqle.getErrorCode());
 			sqle.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -329,7 +327,6 @@ public class UserService {
 			result = (stmt.getInt(3) == 0);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -348,6 +345,8 @@ public class UserService {
 		
 		return result;
 	}
+	
+	
 	/**
 	 * get Places For User
 	 * @param username
@@ -381,10 +380,8 @@ public class UserService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -428,10 +425,8 @@ public class UserService {
 				p.setScene_id(rs.getLong(5));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -472,13 +467,11 @@ public class UserService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			if(e.getClass().equals(MySQLIntegrityConstraintViolationException.class)){
 				throw new ConstraintViolationException(e.getMessage());
 			}
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -517,10 +510,8 @@ public class UserService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -560,10 +551,8 @@ public class UserService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -614,10 +603,8 @@ public class UserService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -662,10 +649,8 @@ public class UserService {
 				v.setSceneid(rs.getLong(4));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources
@@ -706,13 +691,11 @@ public class UserService {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			if(e.getClass().equals(MySQLIntegrityConstraintViolationException.class)){
 				throw new ConstraintViolationException(e.getMessage());
 			}
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 		      //finally block used to close resources

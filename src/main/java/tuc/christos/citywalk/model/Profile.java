@@ -2,7 +2,6 @@ package tuc.christos.citywalk.model;
 
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +18,7 @@ public class Profile {
 	private String firstname;
 	private String lastname;
 	private Date created;
-	private Timestamp recentActivity;
+	private String recentActivity;
 	
 	private Map<Long,Visit> visits = new HashMap<>();
 	private long numOfVisits = visits.size();
@@ -142,11 +141,11 @@ public class Profile {
 		this.places = myPlaces;
 	}
 	
-	public Timestamp getRecentActivity() {
+	public String getRecentActivity() {
 		return recentActivity;
 	}
 
-	public void setRecentActivity(Timestamp recentActivity) {
+	public void setRecentActivity(String recentActivity) {
 		this.recentActivity = recentActivity;
 	}
 

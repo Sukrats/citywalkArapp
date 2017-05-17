@@ -61,12 +61,11 @@ public class DBUtility {
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+            // 
             if (dbConn != null) {
                 try {
 					dbConn.close();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
             }
@@ -76,14 +75,12 @@ public class DBUtility {
 				try {
 					dbConn.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             if(stmt != null)
 				try {
 					stmt.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
         }
@@ -115,24 +112,20 @@ public class DBUtility {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
             if (conn != null)
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             if(stmt != null)
 				try {
 					stmt.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
         }
@@ -154,24 +147,20 @@ public class DBUtility {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
             if (conn != null)
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             if(stmt != null)
 				try {
 					stmt.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
         }

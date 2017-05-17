@@ -1,6 +1,7 @@
 package tuc.christos.citywalk.resources;
 
 import java.net.URI;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +53,14 @@ public class ScenesResource {
 			}
 		}
 		return scenes;
+	}
+	
+	@GET
+	@Path("/sync")
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response getSync(@Context UriInfo uriInfo){
+		Timestamp time = SceneService.checkSync();
+		return Response.ok(time.toString()).build();
 	}
 	
 	@POST
